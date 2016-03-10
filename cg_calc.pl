@@ -1,18 +1,18 @@
 #!/usr/bin/perl 
 use strict; 
 
-my $infile = "$ARGV[0]";
-open INFILE, $infile or die "$infile: $!\n";
+my $file = "$ARGV[0]";
+open FILE, $file or die "$file: $!\n";
 
-my $label;
+my $header;
 
-while (my $line = <INFILE>){ 
+while (my $line = <FILE>){ 
     chomp $line;
 
     my @seq = split (/>/, $line);
     
     if ($line =~ />(.*)/){
-        $label = $1
+        $header = $1
 
     } else{
     if ($line !~ />/){
@@ -22,11 +22,11 @@ while (my $line = <INFILE>){
         my $length = length($line);
         my $percent = ($total / $length) * 100;
 
-        print "The percentage of G's and C's for $label, @seq[1] is $percent\n";
+        print "The percentage of G's and C's for $header, @seq[1] is $percent\n";
     }
 }
 
 
 }
 
-close INFILE
+close FILE
