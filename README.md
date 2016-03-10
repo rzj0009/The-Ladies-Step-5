@@ -10,13 +10,13 @@ Bioinformatics, (esp. the BioPython and BioPerl modules), so it doesn't really s
 ####Lets get started. First we need to tell the computer we are using a perl script, not the normal bash script. 
 Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards 
 compatibility with older versions of perl. It also has some functions that stop me from making complete mess of 
-everything with my incompetence.
+everything with my (inevitable) incompetence.
 
     #!/usr/bin/perl 
     use strict; 
 
 ####Now, we need to open up a file to analyze. 
-The *ARGV* command tells program to go get whichever file is specified on the command line. *die* will kill the program if no file is found.
+The *ARGV* command tells program to go get whichever file is specified on the command line. *die* will stop the program if no file is provided.
 
     my $file = "$ARGV[0]";
     open FILE, $file or die "$file: $!\n";
@@ -98,3 +98,4 @@ So now we need to put them together in a manner that is actually readable to the
 
 
 ##Thanks for reading! Hope this makes at least *some* sense...
+######-Jenn
