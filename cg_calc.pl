@@ -22,7 +22,7 @@ while (my $line = <FILE>){
         my $length = length($line);
         my $percent = ($total / $length) * 100;
 
-        print "The percentage of G's and C's for $header, @seq[1] is $percent\n";
+        print "The percentage of Cs and Gs for $header, @seq[1] is $percent\n";
     }
 }
 
