@@ -1,15 +1,14 @@
 ##Okay, well, here is my *ATTEMPT* at coding a program. This script is for a C/G Percent Calculator, using the perl language. 
-I originally wrote the script in Python, but it wasn't working quite right. After much crying and hair-pulling out trying to make it work, I went online and found a code in Perl that did a total nucleotide count for a single fasta file. I figured that was a good place to start and if I taught myself Python in a weekend, one more language couldn't be that bad, right? I WAS VERY WRONG. But at the end of the day, I like this version much more than my original Pyhton code. The Perl and Python languages have basic similarities (beyond the  language vs symbols), but the main difference that continually popped up is that Python programs are much more reusable. They don't need as many changes to be switched to a different task, whereas Perl programs are often one code for one task. But they both seem to be equally useful for Bioinformatics, (esp. the BioPython and BioPerl modules), so it doesn't really seem to matter which language you prefer.
+I originally wrote the script in Python, but it wasn't working quite right. After much crying and hair-pulling out trying to make it work, I went online and found [a code](http://www.techcuriosity.com/resources/bioinformatics/frequency_of_nucleotide.php) in Perl that did a total nucleotide count for a single file. I figured that was a good place to start and if I taught myself Python in a weekend, one more language couldn't be that bad, right? I WAS VERY WRONG. But at the end of the day, I like this version much more than my original Pyhton code. The Perl and Python languages have basic similarities, but the main differences were that Perl relied more on symbology and Python on words and that Python programs are much more reusable. They don't need as many changes to be switched to a different task, whereas Perl programs are often one code for one task, but are highly efficient at that one task. Regardless, both languages seem to be equally useful for Bioinformatics, (esp. the BioPython and BioPerl modules), so it doesn't really seem to matter which language you prefer.
 
-##Why do you even WANT a CG Percent Calculator?
-Knowing the CG percent content can be very useful for researchers. Since Stop codons in DNA contain As and Ts, the regions with more Cs and Gs may correspond to coding genes that are of interest. Higher levels of CG content also correspond to higher melting points. 
-
-
+##What *is* this  C/G Percent Calculator and do we even WANT one?
+Genetic material known as DNA are pairs of long strands of molecules called nucleotides. There are 4 kinds of nucleotides, A (Adenine), T(Thymine), G (Guanine), and C (Cytosine). A pairs up with T and C pairs up G. A CG Percent Calculator should be able to count the number C nucleotides, the number of G nucleotides, and the total number of nucleotides in the sequence, and use these numbers to calculate how much of a given genetic sample is Cs and Gs. Knowing the CG percent content of a sequence can be very useful for researchers. Since Stop codons in DNA contain As and Ts, the regions with more Cs and Gs may correspond to coding genes that are of interest. Higher levels of CG content also correspond to higher melting points, if they are interested in DNA denaturation. 
 
 
-####Lets get started. First we need to tell the computer we are using a perl script, not the normal bash script. 
-Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards 
-compatibility with older versions of perl. It also has some functions that stop me from making complete mess of 
+###Let's get started. 
+
+####First we need to tell the computer we are using a perl script, not the normal bash script. 
+Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards compatibility with older versions of perl. It also has some functions that stop me from making complete mess of 
 everything with my (inevitable) incompetence.
 
     #!/usr/bin/perl 
@@ -50,7 +49,7 @@ To do this, we're going to set an "if" loop inside our "while" loop. Loopception
       if ($line =~ />(.*)/){
           $header = $1
 
-####Now to the main event, calculating CG Percent.
+####On to the main event, calculating CG Percent.
 This is the "else" portion of our "if" loop. If the line wasn't used in the first statement above, we're going to use it here. Below we have lines that calculate the number of Cs and Gs in each in each entry, adds those numbers together, counts the total number of bases, then takes the total number of Cs and Gs and divides that number by the total base number. Then it multiples that value by 100 to give us our percent.
    
       } else{
@@ -61,7 +60,7 @@ This is the "else" portion of our "if" loop. If the line wasn't used in the firs
          my $length = length($line);
          my $percent = ($total / $length) * 100;
 
-####We've got our numbers and our labels. 
+####Finally, we've got our numbers *and* our labels. 
 So now we need to put them together in a manner that is actually readable to the average person. Tables are nice, but I like sentences, so that's what we'll have the program print out for us.
         
         print "The percentage of C's and G's for $header, @seq[1] is $percent\n";
@@ -71,7 +70,7 @@ So now we need to put them together in a manner that is actually readable to the
 
 
     }
-###Now we close our input file and we're done!###
+###Last, but not least, we close our input file and we're done!###
     close FILE
 
 ####If all goes well, your output should look something like this:
