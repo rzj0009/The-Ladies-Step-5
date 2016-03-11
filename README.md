@@ -1,11 +1,11 @@
 ##Okay, well, here is my *ATTEMPT* at coding a program. This script is for a C/G Percent Calculator, using the perl language. 
-I originally wrote the script in Python, but it wasn't working quite right. After much crying and hair-pulling out, I went online 
-and found a code in Perl that did a total nucleotide count for a single fasta file. I figured that was a good place to start and if I 
-taught myself Python in a weekend, one more language couldn't be that bad, right? I WAS VERY WRONG. But at the end of the day, I like 
-this version much more than my original Pyhton code. The Perl and Python languages have basic similarities, but the main difference that 
-continually popped up is that Python programs are much more reusable. They don't need as many changes to be switched to a 
-different task, whereas Perl programs are often one code for one task. But they both seem to be equally useful for 
-Bioinformatics, (esp. the BioPython and BioPerl modules), so it doesn't really seem to matter which language you prefer.
+I originally wrote the script in Python, but it wasn't working quite right. After much crying and hair-pulling out trying to make it work, I went online and found a code in Perl that did a total nucleotide count for a single fasta file. I figured that was a good place to start and if I taught myself Python in a weekend, one more language couldn't be that bad, right? I WAS VERY WRONG. But at the end of the day, I like this version much more than my original Pyhton code. The Perl and Python languages have basic similarities (beyond the  language vs symbols), but the main difference that continually popped up is that Python programs are much more reusable. They don't need as many changes to be switched to a different task, whereas Perl programs are often one code for one task. But they both seem to be equally useful for Bioinformatics, (esp. the BioPython and BioPerl modules), so it doesn't really seem to matter which language you prefer.
+
+##Why do you even WANT a CG Percent Calculator?
+Knowing the CG percent content can be very useful for researchers. Since Stop codons in DNA contain As and Ts, the regions with more Cs and Gs may correspond to coding genes that are of interest. Higher levels of CG content also correspond to higher melting points. 
+
+
+
 
 ####Lets get started. First we need to tell the computer we are using a perl script, not the normal bash script. 
 Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards 
@@ -64,7 +64,7 @@ This is the "else" portion of our "if" loop. If the line wasn't used in the firs
 ####We've got our numbers and our labels. 
 So now we need to put them together in a manner that is actually readable to the average person. Tables are nice, but I like sentences, so that's what we'll have the program print out for us.
         
-        print "The percentage of G's and C's for $header, @seq[1] is $percent\n";
+        print "The percentage of C's and G's for $header, @seq[1] is $percent\n";
   
       }
     }
@@ -72,7 +72,7 @@ So now we need to put them together in a manner that is actually readable to the
 
     }
 ###Now we close our input file and we're done!###
-    close INFILE
+    close FILE
 
 ####If all goes well, your output should look something like this:
     The percentage of G's and C's for gi|226451773|gb|FJ846591.1| Macaca mulatta isolate ULL5 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
