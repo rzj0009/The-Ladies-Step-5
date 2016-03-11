@@ -6,8 +6,7 @@ I originally wrote the script in Python, but I couldn't manage to get it to work
 ##What *is* this  C/G Percent Calculator and *why* do we even want one?
 Genetic material known as DNA are pairs of long strands of molecules called nucleotides. There are 4 kinds of nucleotides, A (Adenine), T (Thymine), G (Guanine), and C (Cytosine). A pairs up with T and C pairs up with G. A C/G Percent Calculator should be able to count the number C nucleotides, the number of G nucleotides, and the total number of nucleotides in the sequence, and use these numbers to calculate how much of a given genetic sample is Cs and Gs. Knowing the C/G percent content of a sequence can be very useful for researchers. Since Stop codons in DNA contain As and Ts, the regions with more Cs and Gs may correspond to coding genes that are of interest. Higher levels of CG content also correspond to higher melting points, if they are interested in DNA denaturation. 
 
-
-##Let's get started. 
+## Alright, let's get started. 
 
 ####First we need to tell the computer we are using a perl script, not the normal bash script. 
 Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards compatibility with older versions of perl. It also has some functions that stop me from making complete mess of 
