@@ -5,7 +5,7 @@ I originally wrote the script in Python, but it wasn't working quite right. Afte
 Genetic material known as DNA are pairs of long strands of molecules called nucleotides. There are 4 kinds of nucleotides, A (Adenine), T(Thymine), G (Guanine), and C (Cytosine). A pairs up with T and C pairs up G. A CG Percent Calculator should be able to count the number C nucleotides, the number of G nucleotides, and the total number of nucleotides in the sequence, and use these numbers to calculate how much of a given genetic sample is Cs and Gs. Knowing the CG percent content of a sequence can be very useful for researchers. Since Stop codons in DNA contain As and Ts, the regions with more Cs and Gs may correspond to coding genes that are of interest. Higher levels of CG content also correspond to higher melting points, if they are interested in DNA denaturation. 
 
 
-###Let's get started. 
+##Let's get started. 
 
 ####First we need to tell the computer we are using a perl script, not the normal bash script. 
 Also, we're going to tell the computer to call up a pragma (also known as a directive) called *Strict*. This is a default mode that enables backwards compatibility with older versions of perl. It also has some functions that stop me from making complete mess of 
@@ -63,7 +63,7 @@ This is the "else" portion of our "if" loop. If the line wasn't used in the firs
 ####Finally, we've got our numbers *and* our labels. 
 So now we need to put them together in a manner that is actually readable to the average person. Tables are nice, but I like sentences, so that's what we'll have the program print out for us.
         
-        print "The percentage of C's and G's for $header, @seq[1] is $percent\n";
+        print "The percentage of Cs and Gs for $header, @seq[1] is $percent\n";
   
       }
     }
@@ -74,26 +74,26 @@ So now we need to put them together in a manner that is actually readable to the
     close FILE
 
 ####If all goes well, your output should look something like this:
-    The percentage of G's and C's for gi|226451773|gb|FJ846591.1| Macaca mulatta isolate ULL5 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451771|gb|FJ846590.1| Macaca mulatta isolate ULL4 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451769|gb|FJ846589.1| Macaca mulatta isolate ULL3 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451767|gb|FJ846588.1| Macaca mulatta isolate ULL2 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
-    The percentage of G's and C's for gi|226451765|gb|FJ846587.1| Macaca mulatta isolate ULL1 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451763|gb|FJ846586.1| Macaca mulatta isolate 425.01 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451761|gb|FJ846585.1| Macaca mulatta isolate 374.03 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451759|gb|FJ846584.1| Macaca mulatta isolate 288.02 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
-    The percentage of G's and C's for gi|226451757|gb|FJ846583.1| Macaca mulatta isolate 228.99 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451755|gb|FJ846582.1| Macaca mulatta isolate 21693 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451753|gb|FJ846581.1| Macaca mulatta isolate 20580 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451751|gb|FJ846580.1| Macaca mulatta isolate 20330 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451749|gb|FJ846579.1| Macaca mulatta isolate 182.92 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451747|gb|FJ846578.1| Macaca mulatta isolate 17414 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451745|gb|FJ846577.1| Macaca fascicularis isolate ULL10 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
-    The percentage of G's and C's for gi|226451743|gb|FJ846576.1| Macaca fascicularis isolate ULL9 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
-    The percentage of G's and C's for gi|226451741|gb|FJ846575.1| Macaca fascicularis isolate ULL8 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.2727272727273
-    The percentage of G's and C's for gi|226451739|gb|FJ846574.1| Macaca fascicularis isolate ULL7 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.2727272727273
-    The percentage of G's and C's for gi|226451737|gb|FJ846573.1| Macaca fascicularis isolate ULL4 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
-    The percentage of G's and C's for gi|226451735|gb|FJ846572.1| Macaca fascicularis isolate ULL3 haplotype 2 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.8787878787879
+    The percentage of Cs and Gs for gi|226451773|gb|FJ846591.1| Macaca mulatta isolate ULL5 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451771|gb|FJ846590.1| Macaca mulatta isolate ULL4 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451769|gb|FJ846589.1| Macaca mulatta isolate ULL3 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451767|gb|FJ846588.1| Macaca mulatta isolate ULL2 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
+    The percentage of Cs and Gs for gi|226451765|gb|FJ846587.1| Macaca mulatta isolate ULL1 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451763|gb|FJ846586.1| Macaca mulatta isolate 425.01 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451761|gb|FJ846585.1| Macaca mulatta isolate 374.03 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451759|gb|FJ846584.1| Macaca mulatta isolate 288.02 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
+    The percentage of Cs and Gs for gi|226451757|gb|FJ846583.1| Macaca mulatta isolate 228.99 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451755|gb|FJ846582.1| Macaca mulatta isolate 21693 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451753|gb|FJ846581.1| Macaca mulatta isolate 20580 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451751|gb|FJ846580.1| Macaca mulatta isolate 20330 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451749|gb|FJ846579.1| Macaca mulatta isolate 182.92 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451747|gb|FJ846578.1| Macaca mulatta isolate 17414 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451745|gb|FJ846577.1| Macaca fascicularis isolate ULL10 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
+    The percentage of Cs and Gs for gi|226451743|gb|FJ846576.1| Macaca fascicularis isolate ULL9 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 48.0895915678524
+    The percentage of Cs and Gs for gi|226451741|gb|FJ846575.1| Macaca fascicularis isolate ULL8 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.2727272727273
+    The percentage of Cs and Gs for gi|226451739|gb|FJ846574.1| Macaca fascicularis isolate ULL7 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.2727272727273
+    The percentage of Cs and Gs for gi|226451737|gb|FJ846573.1| Macaca fascicularis isolate ULL4 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.9578392621871
+    The percentage of Cs and Gs for gi|226451735|gb|FJ846572.1| Macaca fascicularis isolate ULL3 haplotype 2 solute carrier family 25 member A5 (SLC25A5) gene, partial cds,  is 47.8787878787879
 
 
 ##Thanks for reading! Hope this makes at least *some* sense...
