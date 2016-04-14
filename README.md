@@ -5,7 +5,7 @@
 ###Goals
 #####The overall goal of this project was to identify regions of the yeast genome with substantial genetic change over time. Because we were given the last time points, we collected data from other groups with earlier time points to show change in allele frequencies over the entire experiment.
 
-####Sample IDs used in analysis (Rep=Replicate Population, TP=Time Point)
+####Sample IDs used in analysis
     YEE_0112_03_02_12
     YEE_0112_03_02_18
     YEE_0112_03_03_12
