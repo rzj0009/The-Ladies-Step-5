@@ -17,9 +17,7 @@
     YEE_0112_03_10_12
     YEE_0112_03_10_18
 
-[Source Paper](http://www.ncbi.nlm.nih.gov/pubmed/25172959)
-
-####Stats stuff from Keah? If we can ever figure out how to interpret the output of the stats program.
+Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/pubmed/25172959).
 
 ###Workflow
 
