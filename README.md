@@ -29,8 +29,8 @@ Manhattan Plot stuff from Sayma
 Time Series stuff from Jessie 
 
 
-####Group Member Contributions:
-######Keah was responsible for extracting data and passing it on to the appropriate group members and statictical calculations
-######Jessie was responsible for time series plot and coordinating with other groups
-######Sayma was responsible for generating Manhattan plots for each replicate
-######Jennifer wsa responsible for troubleshooting R codes and repository building in Github
+Group Member Contributions:
+        Keah was responsible for extracting data and passing it on to the appropriate group members and statictical calculations
+        Jessie was responsible for time series plot and coordinating with other groups  
+        Sayma was responsible for generating Manhattan plots for each replicate
+        Jennifer was responsible for troubleshooting R codes and repository building in Github
