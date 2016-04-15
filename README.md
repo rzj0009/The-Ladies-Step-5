@@ -23,42 +23,40 @@
 
 ###Workflow
 
-##### Data Extraction Using vcftools
-###To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation 
-using vcf tools and placed the subsets into new vcf files. In this example we extracted all generations at time point 18 and used 
-the recode option to place the output into another vcf file.
+#### Data Extraction Using vcftools
+#####To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation 
+using vcf tools and placed the subsets into new vcf files. 
+
+#####Extract all generations at time point 18 and use the recode option to place the output into another vcf file.
 
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18"  "YEE\_0112\_03\_03\_18" --indv
         "YEE\_0112\_03\_05\_18"  "YEE\_0112\_03\_07\_18" --indv
         "YEE\_0112\_03\_10\_18" --recode --recode-INFO-all --out ra.g18
 
-###We later determined we needed to extract each generation and time point to a seperate file. However, these vcf files were utilized 
-in determinig the depth in teh code below.
+#####Determining the depth in the code below.
 
         vcftools --vcf ra.g18.recode.vcf --depth --out ra.g18
 
-###The vcf files were also utilized to produce stats files using vcf-stats. Prior to this, the files were compressed usinf bgzip and
-indexed using tabix.
+#####Produce stats files using vcf-stats. Prior to this, the files were compressed usinf bgzip and indexed using tabix.
 
         bgzip ra.recode.vcf
         tabix -p vcf ra.g18.recode.vcf.gz
         vcf-stats ra.g18.recode.vcf.gz >> ra.g18.stats.txt
 
-###In order to compare the allele frequency, we utilized vcf-compare. Samples were extracted utilizing the freq ooption and then compared as you can see in this example.
+#####Compare the allele frequency using vcf-compare. Samples were extracted with the freq option.
 
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --indv  "YEE\_0112\_03\_03\_18" --indv
         "YEE\_0112\_03\_05\_18" --indv  "YEE\_0112\_03\_07\_18" --indv
         "YEE\_0112\_03\_10\_18" --freq --out ra.g18
         
-###Samples were extracted again using the vcftool option freq that gives us an output file shouwing the number and areas of allele frequency.
-Here is an example of this code option:
+#####Extract samples again to gives an output file showing the number and areas of allele frequency.
 
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --freq --out r1.g18
 
-###Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of allele events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and produce subsequent plots.
+#####Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of allele events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and produce subsequent plots.
 
 ###R and Manhattan Plots
 
@@ -68,20 +66,20 @@ Here is an example of this code option:
         library(qqman)
         GWAS <- read.csv("ladies.csv")
 
-####Now, we need to tell R which part of the data we want to use eventually
+#####Now, we need to tell R which part of the data we want to use eventually
    
         GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
 
-####Change Chromosome M to Chromosome 17 for consistency with labelling scheme
+#####Change Chromosome M to Chromosome 17 for consistency with labelling scheme
         #GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
 
-####Have Chromosome ID displayed as numeric values
+#####Have Chromosome ID displayed as numeric values
         GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
 
-####Now that the data processing is done, we can tell R to make our Manhattan plots
+#####Now that the data processing is done, we can tell R to make our Manhattan plots
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
 
-####Print the output file in png format so it doesn't have to load every time we want to view it.
+#####Print the output file in png format so it doesn't have to load every time we want to view it.
         png("rep2_manhattan.png", height=400, width=1000)
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
         abline(h=c(0.559), col="blue")
@@ -91,6 +89,22 @@ Here is an example of this code option:
 Time Series stuff from Jessie 
 
 Example Outputs???
+
+###Collaborations with Other Groups
+#####Portions of this project had our group sharing data and working with other groups. Below is the code we used to prepare the data to share with other groups.
+
+       > newdata1 <- subset(DUDE, DUDE$REP1_FINAL>0.559, 
+        +                   select=c(CHR_ID, CHR_POS, ALT))
+        > newdata1 <- subset(DUDE, DUDE$REP1_FINAL>0.559, 
+        +                   select=c(CHR_ID, CHR_POS, REF, ALT))
+        > newdata2 <- subset(DUDE, DUDE$REP2_FINAL>0.805, 
+        +                   select=c(CHR_ID, CHR_POS, REF, ALT))
+        > newdata3 <- subset(DUDE, DUDE$REP3_FINAL>0.350, 
+        +                   select=c(CHR_ID, CHR_POS, REF, ALT))
+        > newdata5 <- subset(DUDE, DUDE$REP5_FINAL>0.303, 
+        +                   select=c(CHR_ID, CHR_POS, REF, ALT))
+        > newdata7 <- subset(DUDE, DUDE$REP7_FINAL>0.253, 
+        +                   select=c(CHR_ID, CHR_POS, REF, ALT))
 
 ####Group Member Contributions:
       Keah was responsible for extracting data and statictical calculations
