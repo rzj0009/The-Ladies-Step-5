@@ -109,5 +109,3 @@ Time Series stuff from Jessie
       Jennifer was responsible for troubleshooting R codes and repository building in Github
 
 
-
-Go sit on a cactus.
