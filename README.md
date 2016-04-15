@@ -45,8 +45,7 @@ indexed using tabix.
         tabix -p vcf ra.g18.recode.vcf.gz
         vcf-stats ra.g18.recode.vcf.gz >> ra.g18.stats.txt
 
-###In order to compare the allele frequency, we utilized vcf-compare. Samples were extracted utilizing the freq ooption and then compared
-as you can see in this example.
+###In order to compare the allele frequency, we utilized vcf-compare. Samples were extracted utilizing the freq ooption and then compared as you can see in this example.
 
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --indv  "YEE\_0112\_03\_03\_18" --indv
@@ -59,29 +58,29 @@ Here is an example of this code option:
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --freq --out r1.g18
 
-###Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. 
-We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of 
-allel events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and 
-produce subsequent plots.
+###Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of allele events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and produce subsequent plots.
 
 ###R and Manhattan Plots
 
-#Rep 1
+####To produce Manhattan plots to faciliate comparisons between the different time points, we moved from the command line into the statistical program R. We added the qqman package, as well as the qqman library to create these plots.
+
+####First, we needed to read our data into R. We converted our output files into the .csv format and added them to R. Then we assigned our data to the variable GWAS.
         library(qqman)
         GWAS <- read.csv("ladies.csv")
 
-#change factor to char.
+#Now, we need to tell R which part of the data we want to use eventually
         GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
 
-#replace chrM with 17
+#Change Chromosome M to Chromosome 17 for consistency with labelling scheme
         #GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
 
-#char. to number
+#Have Chromosome ID displayed as numeric values
         GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
 
-#plot group project allele frequencies
+#Now that the data processing is done, we can tell R to make our Manhattan plots
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
 
+#Print the output file in png format so it doesn't have to load every time we want to view it.
         png("rep2_manhattan.png", height=400, width=1000)
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
         abline(h=c(0.559), col="blue")
