@@ -1,0 +1,14 @@
+#code used to subset SNPs that were over the threshold to send to "The Mad Scientists" 
+
+> newdata1 <- subset(DUDE, DUDE$REP1_FINAL>0.559, 
++                   select=c(CHR_ID, CHR_POS, ALT))
+> newdata1 <- subset(DUDE, DUDE$REP1_FINAL>0.559, 
++                   select=c(CHR_ID, CHR_POS, REF, ALT))
+> newdata2 <- subset(DUDE, DUDE$REP2_FINAL>0.805, 
++                   select=c(CHR_ID, CHR_POS, REF, ALT))
+> newdata3 <- subset(DUDE, DUDE$REP3_FINAL>0.350, 
++                   select=c(CHR_ID, CHR_POS, REF, ALT))
+> newdata5 <- subset(DUDE, DUDE$REP5_FINAL>0.303, 
++                   select=c(CHR_ID, CHR_POS, REF, ALT))
+> newdata7 <- subset(DUDE, DUDE$REP7_FINAL>0.253, 
++                   select=c(CHR_ID, CHR_POS, REF, ALT))
