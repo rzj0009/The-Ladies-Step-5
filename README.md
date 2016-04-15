@@ -68,19 +68,20 @@ Here is an example of this code option:
         library(qqman)
         GWAS <- read.csv("ladies.csv")
 
-#Now, we need to tell R which part of the data we want to use eventually
+####Now, we need to tell R which part of the data we want to use eventually
+   
         GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
 
-#Change Chromosome M to Chromosome 17 for consistency with labelling scheme
+####Change Chromosome M to Chromosome 17 for consistency with labelling scheme
         #GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
 
-#Have Chromosome ID displayed as numeric values
+####Have Chromosome ID displayed as numeric values
         GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
 
-#Now that the data processing is done, we can tell R to make our Manhattan plots
+####Now that the data processing is done, we can tell R to make our Manhattan plots
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
 
-#Print the output file in png format so it doesn't have to load every time we want to view it.
+####Print the output file in png format so it doesn't have to load every time we want to view it.
         png("rep2_manhattan.png", height=400, width=1000)
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
         abline(h=c(0.559), col="blue")
