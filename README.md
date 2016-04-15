@@ -24,8 +24,7 @@
 ###Workflow
 
 #### Data Extraction Using vcftools
-#####To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation 
-using vcf tools and placed the subsets into new vcf files. 
+#####To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation using vcf tools and placed the subsets into new vcf files. 
 
 #####Extract all generations at time point 18 and use the recode option to place the output into another vcf file.
 
@@ -58,11 +57,11 @@ using vcf tools and placed the subsets into new vcf files.
 
 #####Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of allele events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and produce subsequent plots.
 
-###R and Manhattan Plots
+####R and Manhattan Plots
 
-####To produce Manhattan plots to faciliate comparisons between the different time points, we moved from the command line into the statistical program R. We added the qqman package, as well as the qqman library to create these plots.
+#####To produce Manhattan plots to faciliate comparisons between the different time points, we moved from the command line into the statistical program R. We added the qqman package, as well as the qqman library to create these plots.
 
-####First, we needed to read our data into R. We converted our output files into the .csv format and added them to R. Then we assigned our data to the variable GWAS.
+#####First, we needed to read our data into R. We converted our output files into the .csv format and added them to R. Then we assigned our data to the variable GWAS.
         library(qqman)
         GWAS <- read.csv("ladies.csv")
 
