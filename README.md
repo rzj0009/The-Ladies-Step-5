@@ -53,7 +53,7 @@ Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --freq --out r1.g18
 
-#####Even though frequency was able to be determined, the format of the .frq file did not allow to add teh thrue events of allele frequency. We were only able to count the amounts of alleles in thta region. These values were teh same for both generations, however the number of allele events were not the same bwetween teh two timepoints. Due to this, we were given a file in order to determine these counts and produce subsequent plots.
+#####Unfortunately, the format of the .frq file did not allow us to see the true events of allele frequency. We were only able to count the amounts of alleles in the different regions. These values were the same for both generations. However, the number of allele events were not the same between the two timepoints. We were eventually given a new file with the right data to determine these counts and produce subsequent plots.
 
 ####R and Manhattan Plots
 
@@ -76,7 +76,7 @@ Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/
 #####Now that the data processing is done, we can tell R to make our Manhattan plots
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
 
-#####Print the output file in png format so it doesn't have to load every time we want to view it.
+#####Print the output file in png format so it doesn't have to load every time we want to view it and add a cutoff line to the graphs
         png("rep2_manhattan.png", height=400, width=1000)
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
         abline(h=c(0.559), col="blue")
@@ -85,7 +85,6 @@ Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/
 
 Time Series stuff from Jessie 
 
-Example Outputs???
 
 ###Collaborations with Other Groups
 #####Portions of this project had our group sharing data and working with other groups. Below is the code we used to prepare the data to share with other groups.
@@ -108,3 +107,7 @@ Example Outputs???
       Jessie was responsible for time series plot and coordinating with other groups  
       Sayma was responsible for generating Manhattan plots for each replicate
       Jennifer was responsible for troubleshooting R codes and repository building in Github
+
+
+
+Go sit on a cactus.
