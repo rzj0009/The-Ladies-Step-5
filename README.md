@@ -34,7 +34,7 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
         "YEE\_0112\_03\_05\_18"  "YEE\_0112\_03\_07\_18" --indv
         "YEE\_0112\_03\_10\_18" --recode --recode-INFO-all --out ra.g18
 
-#####Determining the depth in the code below.
+#####Determine depth and coverage of reads.
 
         vcftools --vcf ra.g18.recode.vcf --depth --out ra.g18
 
@@ -62,11 +62,11 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
 
 #####To produce Manhattan plots to faciliate comparisons between the different time points, we moved from the command line into the statistical program R. We added the qqman package, as well as the qqman library to create these plots.
 
-#####First, we needed to read our data into R. We converted our output files into the .csv format and added them to R. Then we assigned our data to the variable GWAS.
+#####Read data into R and open the qqman library. Assigned data to the variable GWAS.
         library(qqman)
         GWAS <- read.csv("ladies.csv")
 
-#####Now, we need to tell R which part of the data we want to use eventually
+#####Tell R which part of the data we want to use eventually
    
         GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
 
@@ -76,7 +76,7 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
 #####Have Chromosome ID displayed as numeric values
         GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
 
-#####Now that the data processing is done, we can tell R to make our Manhattan plots
+#####Make Manhattan plots using our data sets
         manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
 
 #####Print the output file in png format so it doesn't have to load every time we want to view it and add a cutoff line to the graphs
@@ -90,7 +90,7 @@ Time Series stuff from Jessie
 
 
 ###Collaborations with Other Groups
-#####Portions of this project had our group sharing data and working with other groups. Below is the code we used to prepare the data to share with other groups.
+##### Sharing is not a carb, so we shared our data with other groups to help them complete their projects. Below is the code we used to prepare the data to share with other groups.
 
        > newdata1 <- subset(DUDE, DUDE$REP1_FINAL>0.559, 
         +                   select=c(CHR_ID, CHR_POS, ALT))
@@ -109,6 +109,6 @@ Time Series stuff from Jessie
       Keah was responsible for extracting data and statictical calculations
       Jessie was responsible for time series plot and coordinating with other groups  
       Sayma was responsible for generating Manhattan plots for each replicate
-      Jennifer was responsible for troubleshooting R codes and repository building in Github
+      Jennifer was responsible for troubleshooting R codes and repository building in Github 
 
 
