@@ -19,7 +19,7 @@ On Wednesdays, We Write Programs To Perform Genetic Analysis
     YEE_0112_03_10_12
     YEE_0112_03_10_18
 
-Thanks to the authors for providing the data sets (found in [this] paper)(http://www.ncbi.nlm.nih.gov/pubmed/25172959) for us to analyze. Four for you Burke et al.
+Thanks to the authors for providing the data sets found in (this) paper[http://www.ncbi.nlm.nih.gov/pubmed/25172959] for us to analyze. Four for you Burke et al.
 
 ###Workflow
 Get in losers, we going coding. Here is a break down of the codes we used to process our data and produce graphs.
