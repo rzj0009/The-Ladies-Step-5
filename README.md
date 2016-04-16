@@ -58,7 +58,7 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
 
 #####Unfortunately at this point, we discovered that, like Fetch, further analysis of the data was not happening. The format of the .frq file did not allow us to see the true events of allele frequency. We were only able to count the amounts of alleles in the different regions. These values were the same for both generations. However, the number of allele events were not the same between the two timepoints. We were eventually given a new file with the right data to determine these counts and produce subsequent plots. 
 
-####R and Manhattan Plots
+####R, Manhattan Plots, and Time Series
 
 #####To produce Manhattan plots to faciliate comparisons between the different time points, we moved from the command line into the statistical program R. We added the qqman package, as well as the qqman library to create these plots.
 
@@ -85,9 +85,11 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
         abline(h=c(0.559), col="blue")
         dev.off()
 
+#####To compare allele frequencies of the replicates at each time point to the replicates at the other time point, we produced a Time Series plot using the code below. 
 
-Time Series stuff from Jessie 
-
+        qplot(TS$V1, TS$V2, geom = "line", col = TS$V3, main = "Changes of Allele Frequency throughout Generations", xlab =     "Generation", ylab = "Mean of Allele Frequency")
+ 
+ 
 
 ###Collaborations with Other Groups
 ##### Sharing is not a carb, so we shared our data with other groups to help them complete their projects. Below is the code we used to prepare the data to share with other groups.
