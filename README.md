@@ -1,4 +1,5 @@
-## The Ladies Group Project Step 5 (On Wednesdays, We Write Programs)
+## The Ladies Group Project Step 5 
+###On Wednesdays, We Write Programs
 #### For this portion of our group project, we wanted to make a comparsion between the yeast populations at time points 12 and 18 in each replicate. We were specifically interested in comparing the Mean Allele Frequencies over all time points in each replicate population, using both our dataset and other datasets provided for us by other groups.
 
 
