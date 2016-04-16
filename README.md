@@ -109,6 +109,7 @@ Get in losers, we going coding. Here is a break down of the codes we used to pro
 
 ####Group Member Contributions:
 The inventor of the toaster strudel would be pleased to know that all of the group members worked together to create the codes and plots for this step. 
+
       Keah was responsible for extracting data and statictical calculations
       Jessie was responsible for time series plot and coordinating with other groups  
       Sayma was responsible for generating Manhattan plots for each replicate
