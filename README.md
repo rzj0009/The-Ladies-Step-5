@@ -1,7 +1,7 @@
 ## The Ladies Group Project Step 5 
-###On Wednesdays, We Write Programs To Perform Genetic Analysis
+On Wednesdays, We Write Programs To Perform Genetic Analysis
 
-#### For this portion of our group project, we wanted to make a comparsion between the yeast populations at time points 12 and 18 in each replicate. We were specifically interested in comparing the Mean Allele Frequencies over all time points in each replicate population, using both our dataset and other datasets provided for us by other groups.
+#### For this portion of our group project, we wanted to make a comparsion between populations of a super cool organism at multiple time points. Which organism? Its yeast, duh! We looked at the last two time points in the data set, the populations at time points 12 and 18. We were specifically interested in comparing the Mean Allele Frequencies over all time points in each replicate population, using both our dataset and other datasets provided for us by other groups. (Its yeast, duh! goes in here somewhere)
 
 
 ###Goals
@@ -19,9 +19,10 @@
     YEE_0112_03_10_12
     YEE_0112_03_10_18
 
-Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/pubmed/25172959).
+Thanks to the authors for providing the data sets (found in [this] paper)(http://www.ncbi.nlm.nih.gov/pubmed/25172959) for us to analyze. Four for you Burke et al.
 
 ###Workflow
+Get in losers, we going coding. Here is a break down of the codes we used to process our data and produce graphs.
 
 #### Data Extraction Using vcftools
 #####To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation using vcf tools and placed the subsets into new vcf files. 
@@ -55,7 +56,7 @@ Samples came from the data provided by this [paper](http://www.ncbi.nlm.nih.gov/
         vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
         "YEE\_0112\_03\_02\_18" --freq --out r1.g18
 
-#####Unfortunately, the format of the .frq file did not allow us to see the true events of allele frequency. We were only able to count the amounts of alleles in the different regions. These values were the same for both generations. However, the number of allele events were not the same between the two timepoints. We were eventually given a new file with the right data to determine these counts and produce subsequent plots.
+#####Unfortunately at this point, we discovered that, like Fetch, further analysis of the data was not happening. The format of the .frq file did not allow us to see the true events of allele frequency. We were only able to count the amounts of alleles in the different regions. These values were the same for both generations. However, the number of allele events were not the same between the two timepoints. We were eventually given a new file with the right data to determine these counts and produce subsequent plots. 
 
 ####R and Manhattan Plots
 
