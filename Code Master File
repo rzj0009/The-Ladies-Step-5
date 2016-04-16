@@ -1,0 +1,154 @@
+#Master File for Codes
+
+##Shell
+
+###Extracted all generations at given time point, use the recode option to place the output into another vcf file.
+
+        vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
+        "YEE\_0112\_03\_02\_18"  "YEE\_0112\_03\_03\_18" --indv
+        "YEE\_0112\_03\_05\_18"  "YEE\_0112\_03\_07\_18" --indv
+        "YEE\_0112\_03\_10\_18" --recode --recode-INFO-all --out ra.g18
+
+###Determining the depth in the code below.
+
+        vcftools --vcf ra.g18.recode.vcf --depth --out ra.g18
+
+###Produce stats files using vcf-stats. Compress using bgzip and index using tabix.
+
+        bgzip ra.recode.vcf
+        tabix -p vcf ra.g18.recode.vcf.gz
+        vcf-stats ra.g18.recode.vcf.gz >> ra.g18.stats.txt
+
+###Compare the allele frequency. Samples were extracted utilizing the freq option in vcf-compare
+  vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
+        "YEE\_0112\_03\_02\_18" --indv  "YEE\_0112\_03\_03\_18" --indv
+        "YEE\_0112\_03\_05\_18" --indv  "YEE\_0112\_03\_07\_18" --indv
+        "YEE\_0112\_03\_10\_18" --freq --out ra.g18
+        
+###Produce an output file showing the number and areas of allele frequency.
+
+        vcftools --gzvcf Combined.Q30.recode.vcf.gz --indv
+        "YEE\_0112\_03\_02\_18" --freq --out r1.g18
+
+
+##R 
+###R Code for Manhattan Plots
+
+    #Rep 1
+    library(qqman)
+    GWAS <- read.csv("ladies.csv")
+    
+    #change factor to char.
+    GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
+    
+    #replace chrM with 17
+    #GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
+    
+    #char. to number
+    GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
+    
+    #plot group project allele frequencies
+    manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+    
+    png("rep2_manhattan.png", height=400, width=1000)
+    manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP1_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+    abline(h=c(0.559), col="blue")
+    dev.off()
+    
+#Rep 2
+library(qqman)
+GWAS <- read.csv("ladies.csv")
+
+#change factor to char.
+GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
+
+#replace chrM with 17
+#GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
+
+
+# Change char. to number
+GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
+
+#Plot group project allele frequencies
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP2_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+
+#Save plot as png file for uploading to Github
+png("rep2_manhattan.png", height=400, width=1000)
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP2_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+abline(h=c(0.805), col="blue")
+dev.off()
+
+#Rep3
+library(qqman)
+GWAS <- read.csv("ladies.csv")
+
+#change factor to char.
+GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
+
+#replace chrM with 17
+#GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
+
+#char. to number
+GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
+
+#do for plot group project allele frequencies
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP3_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+
+#Save as png file for uploading to Github, add significance line
+png("rep3_manhattan.png", height=400, width=1000)
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP3_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+abline(h=c(0.350), col="blue")
+dev.off()
+
+#Rep 5
+library(qqman)
+GWAS <- read.csv("ladies.csv")
+
+#change factor to char.
+GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
+
+#replace chrM with 17
+#GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
+
+#char. to number
+GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
+
+#do for plot group project allele frequencies
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP5_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+
+# Save file as png for uploading to Github, add cutoff line
+png("rep5_manhattan.png", height=400, width=1000)
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP5_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+abline(h=c(0.303), col="blue")
+dev.off()
+
+#Rep 7
+library(qqman)
+GWAS <- read.csv("ladies.csv")
+
+#change factor to char.
+GWAS$CHR_ID <- as.character(GWAS$CHR_ID)
+
+#replace chrM with 17
+#GWAS[GWAS$CHR_ID=="chrM","CHR_ID"] <- "17"
+
+# Change char. to number
+GWAS$CHR_ID <- as.numeric(GWAS$CHR_ID)
+
+#Plot group project allele frequencies
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP7_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+
+#Save file as png, add cutoff line
+png("rep7_manhattan.png", height=400, width=1000)
+manhattan(GWAS, chr="CHR_ID", bp="CHR_POS", p="REP7_FINAL", snp="SNP_ID_CURRENT", ylim=c(0, 1.2), logp=FALSE, ylab="change of allele frequency", genomewideline = FALSE, suggestiveline = FALSE, chrlabs=c(1:16, "chrM"), col =c(1:16, "red", "blues9"))
+abline(h=c(0.253), col="blue")
+dev.off()
+
+###Code for Time Series
+
+# A time series plot was created for the allele frequency changes over the generations 
+#main is used to name the graph, xlab and y lab are used to name the axises 
+ qplot(TS$V1, TS$V2, geom = "line", col = TS$V3, main = "Changes of Allele Frequency throughout Generations", xlab = "Generation", ylab = "Mean of Allele Frequency")
+ 
+ 
+
