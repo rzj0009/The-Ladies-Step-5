@@ -1,7 +1,7 @@
 ## The Ladies Group Project Step 5 
 On Wednesdays, We Write Programs To Perform Genetic Analysis
 
-#### For this portion of our group project, we wanted to make a comparsion between populations of a super cool organism at multiple time points. Which organism? Its yeast, duh! We looked at the last two time points in the data set, the populations at time points 12 and 18. We were specifically interested in comparing the Mean Allele Frequencies over all time points in each replicate population, using both our dataset and other datasets provided for us by other groups. (Its yeast, duh! goes in here somewhere)
+#### For this portion of our group project, we wanted to make a comparsion between populations of a super cool organism at multiple time points. Which organism? Its yeast, duh! We looked at the last two time points in the data set, the populations at time points 12 and 18. We were specifically interested in comparing the Mean Allele Frequencies over all time points in each replicate population, using both our dataset and other datasets provided for us by other groups. 
 
 
 ###Goals
@@ -19,7 +19,7 @@ On Wednesdays, We Write Programs To Perform Genetic Analysis
     YEE_0112_03_10_12
     YEE_0112_03_10_18
 
-Thanks to the authors for providing the data sets found in (this) paper[http://www.ncbi.nlm.nih.gov/pubmed/25172959] for us to analyze. Four for you Burke et al.
+Thanks to the authors for providing the data sets found in [this] paper (http://www.ncbi.nlm.nih.gov/pubmed/25172959) for us to analyze. Four for you Burke et al.
 
 ###Workflow
 Get in losers, we going coding. Here is a break down of the codes we used to process our data and produce graphs.
