@@ -1,5 +1,0 @@
-# A time series plot was created for the allele frequency changes over the generations 
-#main is used to name the graph, xlab and y lab are used to name the axises 
- qplot(TS$V1, TS$V2, geom = "line", col = TS$V3, main = "Changes of Allele Frequency throughout Generations", xlab = "Generation", ylab = "Mean of Allele Frequency")
- 
- 
