@@ -90,6 +90,8 @@ Get in losers, we're going coding. Here is a break down of the codes we used to 
         qplot(TS$V1, TS$V2, geom = "line", col = TS$V3, main = "Changes of Allele Frequency throughout Generations", xlab =     "Generation", ylab = "Mean of Allele Frequency")
  
  
+###Conclusions
+The inventor of the toaster strudel would be pleased to learned that we ...
 
 ###Collaborations with Other Groups
 ##### Sharing is not a carb, so we shared our data with other groups to help them complete their projects. Below is the code we used to prepare the data to share with other groups.
@@ -108,7 +110,6 @@ Get in losers, we're going coding. Here is a break down of the codes we used to 
         +                   select=c(CHR_ID, CHR_POS, REF, ALT))
 
 ####Group Member Contributions:
-The inventor of the toaster strudel would be pleased to know that all of the group members worked together to create the codes and plots for this step. 
 
       Keah was responsible for extracting data and statictical calculations
       Jessie was responsible for time series plot and coordinating with other groups  
