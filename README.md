@@ -91,7 +91,7 @@ Get in losers, we're going coding. Here is a break down of the codes we used to 
  
  
 ###Preliminary Conclusions
-The inventor of the toaster strudel would be pleased to learned that we discovered some very interesting results from our genetic analysis. The time series graph reported that all of the replicate populations hit 0.55 at time point 12 and levelled off by time point 18. The Manhattan plots revealled that the number of SNPs increased in each replicate population, with replicate 1 having significant changes in 4 chromosomes, replicate 2 having changes in 5 chromosomes, until replicate 5 when all of the chromosomes had SNPs above the threshold. This trend continued into replicate 7.
+The inventor of the toaster strudel would be pleased to learned that we discovered some very interesting results from our genetic analysis. The time series graph reported that all of the replicate populations hit 0.55 at time point 12 and levelled off by time point 18. The Manhattan plots revealled that the number of SNPs increased in each replicate population, with replicate 1 having significant changes in 4 chromosomes, replicate 2 having changes in 5 chromosomes, and so on. By replicate 5, all of the chromosomes had SNPs above the threshold. This trend continued into replicate 7.
 
 ###Collaborations with Other Groups
 ##### Sharing is not a carb, so we shared our data with other groups to help them complete their projects. Below is the code we used to prepare the data to share with other groups.
@@ -110,7 +110,6 @@ The inventor of the toaster strudel would be pleased to learned that we discover
         +                   select=c(CHR_ID, CHR_POS, REF, ALT))
 
 ####Group Member Contributions:
-
       Keah was responsible for extracting data and statictical calculations
       Jessie was responsible for time series plot and coordinating with other groups  
       Sayma was responsible for generating Manhattan plots for each replicate
