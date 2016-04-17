@@ -22,7 +22,7 @@ On Wednesdays, We Write Programs To Perform Genetic Analysis
 Thanks to the authors for providing the data sets found in [this](http://www.ncbi.nlm.nih.gov/pubmed/25172959) paper for us to analyze. Four for you Burke et al.
 
 ###Workflow
-Get in losers, we going coding. Here is a break down of the codes we used to process our data and produce graphs.
+Get in losers, we're going coding. Here is a break down of the codes we used to process our data and produce graphs.
 
 #### Data Extraction Using vcftools
 #####To understand the allele frequency difference between the time points 12 and 18 we extracted the time points form each generation using vcf tools and placed the subsets into new vcf files. 
